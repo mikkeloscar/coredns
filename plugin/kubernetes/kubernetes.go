@@ -10,6 +10,7 @@ import (
 	"github.com/coredns/coredns/plugin"
 	"github.com/coredns/coredns/plugin/etcd/msg"
 	"github.com/coredns/coredns/plugin/kubernetes/object"
+	"github.com/coredns/coredns/plugin/metrics"
 	"github.com/coredns/coredns/plugin/pkg/dnsutil"
 	"github.com/coredns/coredns/plugin/pkg/fall"
 	"github.com/coredns/coredns/plugin/pkg/upstream"
@@ -43,6 +44,7 @@ type Kubernetes struct {
 	Fall             fall.F
 	ttl              uint32
 	opts             dnsControlOpts
+	metrics          *metrics.Metrics
 
 	primaryZoneIndex   int
 	interfaceAddrsFunc func() net.IP
